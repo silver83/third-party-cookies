@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+  <div id='result'>waiting for result...</div>
+
+  <script type="text/javascript">
+    var resultElem = $('#result');
+    $.getJSON('//domain2.com:3000/getcookie?callback=?')
+      .done(function(data) {
+        resultElem.text(JSON.stringify(data));
+      })
+      .fail(function(jqxhr, txtStatus, error) {
+        resultElem.text(txtStatus + ':' + error);
+      });    
+
+
+  </script>
+
+</body>
+</html>
